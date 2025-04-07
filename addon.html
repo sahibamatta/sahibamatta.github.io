@@ -13,8 +13,11 @@
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="addon.html" class="active">Emoji Central</a></li>
+                <li><a href="index.html" id="nav-home">Home</a></li>
+                <li><a href="addon.html" id="nav-emoji" class="active">Emoji Central</a></li>
+                <!-- Fixed navigation links with IDs -->
+                <li><a href="#privacy-policy" id="nav-privacy">Privacy Policy</a></li>
+                <li><a href="#terms-conditions" id="nav-terms">Terms & Conditions</a></li>
                 <!-- Add other navigation links as needed -->
             </ul>
         </nav>
@@ -69,7 +72,8 @@
                 </div>
                 
                 <div id="privacy" class="tab-content active">
-                    <div class="privacy-policy">
+                    <!-- Important: Added the ID at the beginning of this div -->
+                    <div id="privacy-policy" class="privacy-policy">
                         <h2>Privacy Policy for Emoji Central</h2>
                         
                         <p>This Privacy Policy describes how Sahiba Matta ("we," "us," or "our") collects, uses, and shares information in connection with the Emoji Central Google Workspace Add-on (the "Add-on") for Google Forms. By installing and using the Add-on, you consent to the practices described in this Privacy Policy.</p>
@@ -165,7 +169,8 @@
                 </div>
                 
                 <div id="terms" class="tab-content">
-                    <div class="privacy-policy">
+                    <!-- Important: Added the ID at the beginning of this div -->
+                    <div id="terms-conditions" class="privacy-policy">
                         <h2>Terms and Conditions for Emoji Central</h2>
                         
                         <p>By using the free Emoji Central Google Forms Add-on, you agree to these terms.</p>
@@ -223,7 +228,7 @@
                             <li>
                                 <h3>Privacy</h3>
                                 <div class="section-content">
-                                    <p>Our <a href="#" onclick="openTab(event, 'privacy')">Privacy Policy</a> explains how we collect, use, and protect your information.</p>
+                                    <p>Our <a href="#privacy-policy">Privacy Policy</a> explains how we collect, use, and protect your information.</p>
                                 </div>
                             </li>
                             
@@ -273,7 +278,59 @@
             // Show the current tab and add "active" class to the button
             document.getElementById(tabName).className += " active";
             evt.currentTarget.className += " active";
+
+            // Update URL with appropriate hash
+            if (tabName === 'privacy') {
+                window.history.pushState(null, null, '#privacy-policy');
+            } else if (tabName === 'terms') {
+                window.history.pushState(null, null, '#terms-conditions');
+            }
         }
+
+        // Add event listeners for navigation menu highlighting
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            // Function to handle clicks on navigation links
+            function handleNavClick(e) {
+                // Remove active class from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                e.target.classList.add('active');
+            }
+            
+            // Add click event listeners to all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleNavClick);
+            });
+            
+            // Handle section visibility when clicking on tab buttons
+            const privacyTabButton = document.querySelector('.tab-button:nth-child(1)');
+            const termsTabButton = document.querySelector('.tab-button:nth-child(2)');
+            
+            // Function to show Terms tab when clicking Terms link
+            function showTermsTab() {
+                if (window.location.hash === '#terms-conditions') {
+                    openTab({ currentTarget: termsTabButton }, 'terms');
+                }
+            }
+            
+            // Check hash on page load
+            if (window.location.hash === '#terms-conditions') {
+                showTermsTab();
+            }
+            
+            // Check hash on hash change
+            window.addEventListener('hashchange', function() {
+                if (window.location.hash === '#terms-conditions') {
+                    showTermsTab();
+                }
+            });
+        });
     </script>
 </body>
 </html>
