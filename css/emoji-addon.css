@@ -1,0 +1,314 @@
+/* Emoji Central Add-on Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #4285F4;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.addon-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.addon-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #4285F4;
+    font-size: 2.5rem;
+}
+
+.addon-container h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #4285F4;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.addon-container p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.intro-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.feature-list {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.feature-list li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #34A853; /* Google green */
+    font-weight: bold;
+}
+
+.how-to-steps {
+    background-color: #f5f5f5;
+    padding: 25px;
+    border-radius: 10px;
+    margin: 30px 0;
+}
+
+.how-to-steps ol {
+    margin-left: 20px;
+}
+
+.how-to-steps li {
+    margin-bottom: 15px;
+}
+
+.addon-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.addon-image:hover {
+    transform: scale(1.02);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #4285F4; /* Google blue */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: #3367D6; /* Darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(66,133,244,0.3);
+}
+
+.cta-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.policies-section {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 40px;
+    border-left: 4px solid #4285F4;
+}
+
+.policies-section a {
+    color: #4285F4;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.policies-section a:hover {
+    color: #3367D6;
+    text-decoration: underline;
+}
+
+.privacy-policy {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 2px dashed #e0e0e0;
+}
+
+.privacy-policy h2 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Privacy policy and terms of service list styles */
+.privacy-policy ol {
+    margin-left: 20px;
+    counter-reset: policy-counter;
+    padding-left: 20px;
+}
+
+.privacy-policy ol > li {
+    margin-bottom: 40px;
+    position: relative;
+    list-style-type: none;
+    padding-left: 10px;
+}
+
+.privacy-policy ol > li::before {
+    counter-increment: policy-counter;
+    content: counter(policy-counter) ".";
+    position: absolute;
+    left: -25px;
+    font-weight: bold;
+    color: #4285F4;
+    top: 0; /* Align with the top of the heading */
+}
+
+.privacy-policy h3 {
+    margin-top: 0; /* Remove top margin to align with the number */
+    margin-bottom: 15px;
+    color: #333;
+    display: inline-block; /* Allow the number to align on the same line */
+}
+
+.privacy-policy .section-content {
+    margin-left: 0;
+    margin-top: 10px; /* Add some space after the heading */
+}
+
+/* Fix for nested lists inside privacy policy */
+.privacy-policy ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding-left: 20px; /* Added padding for better spacing */
+}
+
+.privacy-policy ul li {
+    margin-bottom: 8px;
+    padding-left: 5px; /* Added padding for list items */
+}
+
+.tab-container {
+    margin: 30px 0;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+    font-weight: bold;
+    color: #666;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-button.active {
+    color: #4285F4;
+    border-bottom-color: #4285F4;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #8ab4f8;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .addon-container {
+        padding: 20px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 5px 0;
+    }
+    
+    .tab-button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
